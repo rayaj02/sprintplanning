@@ -13,3 +13,9 @@ class TeamMember:
 class Team:
     def __init__(self):
         self.members = []
+
+# Feature A - Calculate a sprint team’s velocity
+def calculate_average_velocity(sprint):
+    if not sprint.point_completion_history:
+        return 0
+    return sum(sprint.point_completion_history) / len(sprint.point_completion_history)
