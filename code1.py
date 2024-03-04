@@ -27,3 +27,8 @@ def calculate_individual_capacity(member):
     available_days = total_working_days - member.days_off - member.ceremonies_commitment
     hours_per_day = sum(member.hours_per_day_range) / len(member.hours_per_day_range)
     return available_days * hours_per_day
+
+
+# calculating team total capacity
+def calculate_total_capacity(team):
+    return sum(calculate_individual_capacity(member) for member in team.members)
