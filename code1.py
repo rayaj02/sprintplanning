@@ -19,3 +19,11 @@ def calculate_average_velocity(sprint):
     if not sprint.point_completion_history:
         return 0
     return sum(sprint.point_completion_history) / len(sprint.point_completion_history)
+
+
+# Feature B - Calculate Team Effort-Hour Capacity
+def calculate_individual_capacity(member):
+    total_working_days = 5  # Assuming a standard workweek
+    available_days = total_working_days - member.days_off - member.ceremonies_commitment
+    hours_per_day = sum(member.hours_per_day_range) / len(member.hours_per_day_range)
+    return available_days * hours_per_day
