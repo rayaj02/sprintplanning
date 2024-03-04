@@ -38,3 +38,39 @@ def calculate_total_capacity(team):
 # New Feature B Subtask - Calculate Available Effort-Hours/Person
 def calculate_available_effort_hours_per_person(member):
     return calculate_individual_capacity(member)
+
+
+# New Feature B Subtask - Calculate Available Effort-Hours for Team
+def calculate_available_effort_hours_for_team(team):
+    return sum(calculate_available_effort_hours_per_person(member) for member in team.members)
+
+# Input data
+sprint = Sprint()
+sprint.point_completion_history = [10, 15, 20]
+
+team_member1 = TeamMember(name="darshini", days_off=1, ceremonies_commitment=1, hours_per_day_range=[6, 8])
+team_member2 = TeamMember(name="pavan", days_off=2, ceremonies_commitment=2, hours_per_day_range=[7, 9])
+team_member3 = TeamMember(name="aswin", days_off=2, ceremonies_commitment=2, hours_per_day_range=[7, 9])
+team_member4 = TeamMember(name="jaswanth", days_off=2, ceremonies_commitment=2, hours_per_day_range=[7, 9])
+
+team = Team()
+team.members = [team_member1, team_member2]
+
+# Calculate and print results
+average_velocity = calculate_average_velocity(sprint)
+print(f"Average Velocity: {average_velocity}")
+
+total_capacity = calculate_total_capacity(team)
+print(f"Total Team Effort-Hour Capacity: {total_capacity} hours")
+
+# New calculations
+available_effort_hours_per_person = calculate_available_effort_hours_per_person(team_member1)
+print(f"Available Effort-Hours/Person ({team_member1.name}): {available_effort_hours_per_person} hours")
+print(f"Available Effort-Hours/Person ({team_member2.name}): {available_effort_hours_per_person} hours")
+
+print(f"Available Effort-Hours/Person ({team_member3.name}): {available_effort_hours_per_person} hours")
+
+print(f"Available Effort-Hours/Person ({team_member4.name}): {available_effort_hours_per_person} hours")
+
+available_effort_hours_for_team = calculate_available_effort_hours_for_team(team)
+print(f"Available Effort-Hours for Team: {available_effort_hours_for_team} hours")
