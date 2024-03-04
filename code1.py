@@ -32,3 +32,9 @@ def calculate_individual_capacity(member):
 # calculating team total capacity
 def calculate_total_capacity(team):
     return sum(calculate_individual_capacity(member) for member in team.members)
+
+
+
+# New Feature B Subtask - Calculate Available Effort-Hours/Person
+def calculate_available_effort_hours_per_person(member):
+    return calculate_individual_capacity(member)
