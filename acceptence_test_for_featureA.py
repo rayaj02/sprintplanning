@@ -1,7 +1,7 @@
 # acceptance_test_for_featureA.py
 
 # Import the Sprint class and the function to be tested
-from code1 import Sprint, calculate_average_velocity
+from code1 import Sprint, test calculate_average_velocity
 
 # Define the acceptance test
 def test_calculate_average_velocity():
